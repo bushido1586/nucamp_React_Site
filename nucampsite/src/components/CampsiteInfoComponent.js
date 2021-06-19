@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
-import {CAMPSITES} from '../shared/campsites';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class CampsiteInfo extends Component{
 
-    render(){
+    renderCampsite(campsite){
+        return(
+            <div className="col-md-5 m-1">
+                    <Card>
+                        <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                        <CardBody>
+                            <CardTitle>{campsite.name}</CardTitle>
+                            <CardText>{campsite.description}</CardText>
+                        </CardBody>
+                    </Card>                
+            </div>
+        );
+    }
 
-          if(CAMPSITES == true){
-              return <div className="row" />
-          }else {
-                return <div />
-        }
+    render(){
+          if(this.props.campsite){
+              return (
+              <div className="row">
+                    {this.renderCampsite(this.props.campsite)}
+                </div>);
+          }          
+                return <div />;
     }
 }
 
