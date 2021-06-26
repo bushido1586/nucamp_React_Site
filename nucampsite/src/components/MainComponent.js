@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
+import About from './AboutComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { CAMPSITES } from '../shared/campsites';
@@ -51,6 +52,7 @@ class Main extends Component {
                     <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Route path='/directory/:campsiteId' component={campsiteWithId} />
                     <Route exact path='/contactus' component={Contact} />
+                    <Route exact path ='/aboutus' render={() => <About partners={this.state.partners} />} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
