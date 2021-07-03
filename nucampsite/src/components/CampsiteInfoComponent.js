@@ -43,7 +43,7 @@ class CommentForm extends Component{
                 <Button className="fa fa-pencil fa-lg" outline onClick={this.toggleModal}>Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal} >Submit Comment</ModalHeader>
-                    <ModalBody>
+                    <ModalBody className="commentModal">
                         <LocalForm onSubmit={values => this.handleSubmit(values)}>
                             <div className="form-group">
                                 <Label htmlFor="rating">Rating</Label>
