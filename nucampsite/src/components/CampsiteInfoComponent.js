@@ -42,8 +42,8 @@ class CommentForm extends Component{
             <React.Fragment>
                 <Button className="fa fa-pencil fa-lg" outline onClick={this.toggleModal}>Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal} >Submit Comment</ModalHeader>
-                    <ModalBody className="commentModal">
+                    <ModalHeader className="commentModal" toggle={this.toggleModal} >Submit Comment</ModalHeader>
+                    <ModalBody>
                         <LocalForm onSubmit={values => this.handleSubmit(values)}>
                             <div className="form-group">
                                 <Label htmlFor="rating">Rating</Label>
@@ -102,8 +102,6 @@ class CommentForm extends Component{
             </React.Fragment>
         );
     }
-
-   
 }
 
     function RenderCampsite({campsite}){
@@ -154,6 +152,5 @@ class CommentForm extends Component{
         }
         return <div />;
     }
-
 
 export default CampsiteInfo;
