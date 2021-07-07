@@ -34,7 +34,7 @@ class CommentForm extends Component{
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);    
+        this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
     }
 
     render(){
@@ -116,14 +116,14 @@ class CommentForm extends Component{
             </div>
         );
     }
-    function RenderComments({comments, addComment, campsiteId}){
+    function RenderComments({comments, postComment, campsiteId}){
         if(comments){
             return(
                 <div className="col-md-5 m-1">
                     <h4>Comments</h4>
                     {comments.map((comments) =>
-                        <div key={comments.id}>{comments.author}<br></br> --{comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}</div>)}
-                    <CommentForm campsiteId={campsiteId} addComment={addComment} />
+                        <div key={comments.id}>{comments.text}<br></br> --{comments.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comments.date)))}</div>)}
+                    <CommentForm campsiteId={campsiteId} postComment={postComment} />
                 </div>
             );
         }return <div />;
@@ -168,10 +168,10 @@ class CommentForm extends Component{
                     <div className="row">
                         <RenderCampsite campsite={props.campsite} />
                         <RenderComments
-                        comments={props.comments} 
-                        addComment={props.addComment}
-                        campsiteId={props.campsiteId}
-                        />
+                        comments={props.comments}
+                        postComment={props.postComment}
+                        campsiteId={props.campsite.id}
+                    /> 
                     </div>
                 </div>
             );
