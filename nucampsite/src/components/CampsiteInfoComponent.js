@@ -4,7 +4,8 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components'
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import {AnimationWrapper} from 'react-hover-animation';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
@@ -41,7 +42,9 @@ class CommentForm extends Component{
     render(){
         return(
             <React.Fragment>
-                <Button className="fa fa-pencil fa-lg" outline onClick={this.toggleModal}>Submit Comment</Button>
+                <AnimationWrapper>
+                    <Button className="fa fa-pencil fa-lg" outline onClick={this.toggleModal}>Submit Comment</Button>
+                </AnimationWrapper>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader className="commentModal" toggle={this.toggleModal} >Submit Comment</ModalHeader>
                     <ModalBody>
